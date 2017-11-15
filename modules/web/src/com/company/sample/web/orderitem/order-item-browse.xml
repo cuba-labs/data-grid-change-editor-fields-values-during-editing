@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.sample.web.orderitem.OrderItemBrowse"
+        focusComponent="dataGrid"
+        lookupComponent="dataGrid"
+        messagesPack="com.company.sample.web.orderitem">
+    <dsContext>
+        <groupDatasource id="orderItemsDs"
+                         class="com.company.sample.entity.OrderItem"
+                         view="_local">
+            <query>
+                <![CDATA[select e from sample$OrderItem e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="dataGrid"
+            spacing="true">
+        <filter id="filter"
+                applyTo="dataGrid"
+                datasource="orderItemsDs">
+            <properties include=".*"/>
+        </filter>
+        <dataGrid id="dataGrid"
+                  datasource="orderItemsDs"
+                  editorEnabled="true"
+                  width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column property="product"/>
+                <column property="price"/>
+                <column property="quantity"/>
+                <column property="total"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="dataGrid.create"/>
+                <button id="editBtn"
+                        action="dataGrid.edit"/>
+                <button id="removeBtn"
+                        action="dataGrid.remove"/>
+            </buttonsPanel>
+        </dataGrid>
+    </layout>
+</window>
