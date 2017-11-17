@@ -5,4 +5,8 @@
             template="com/company/sample/web/orderitem/order-item-browse.xml"/>
     <screen id="sample$OrderItem.edit"
             template="com/company/sample/web/orderitem/order-item-edit.xml"/>
+    <screen id="sample$Product.browse"
+            template="com/company/sample/web/product/product-browse.xml"/>
+    <screen id="sample$Product.edit"
+            template="com/company/sample/web/product/product-edit.xml"/>
 </screen-config>

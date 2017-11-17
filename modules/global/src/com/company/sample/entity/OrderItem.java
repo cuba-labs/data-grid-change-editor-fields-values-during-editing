@@ -7,6 +7,9 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @NamePattern("%s|product")
 @Table(name = "SAMPLE_ORDER_ITEM")
@@ -14,34 +17,21 @@ import com.haulmont.chile.core.annotations.NamePattern;
 public class OrderItem extends StandardEntity {
     private static final long serialVersionUID = 6309067197919791439L;
 
-    @Column(name = "PRODUCT", nullable = false)
-    protected String product;
-
-    @NotNull
-    @Column(name = "PRICE", nullable = false)
-    protected BigDecimal price;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "PRODUCT_ID")
+    protected Product product;
 
     @Column(name = "QUANTITY", nullable = false)
     protected Integer quantity;
 
-    @Column(name = "TOTAL")
-    protected BigDecimal total;
-
-    public void setProduct(String product) {
-        this.product = product;
-    }
-
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
@@ -49,14 +39,6 @@ public class OrderItem extends StandardEntity {
 
     public Integer getQuantity() {
         return quantity;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
     }
 
 

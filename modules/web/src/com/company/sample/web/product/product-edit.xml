@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://editorCaption"
-        class="com.company.sample.web.orderitem.OrderItemEdit"
-        datasource="orderItemDs"
+        class="com.company.sample.web.product.ProductEdit"
+        datasource="productDs"
         focusComponent="fieldGroup"
-        messagesPack="com.company.sample.web.orderitem">
+        messagesPack="com.company.sample.web.product">
     <dsContext>
-        <datasource id="orderItemDs"
-                    class="com.company.sample.entity.OrderItem"
+        <datasource id="productDs"
+                    class="com.company.sample.entity.Product"
                     view="_local"/>
     </dsContext>
     <dialogMode height="600"
@@ -15,10 +15,10 @@
     <layout expand="windowActions"
             spacing="true">
         <fieldGroup id="fieldGroup"
-                    datasource="orderItemDs">
+                    datasource="productDs">
             <column width="250px">
-                <field property="product"/>
-                <field property="quantity"/>
+                <field property="name"/>
+                <field property="price"/>
             </column>
         </fieldGroup>
         <frame id="windowActions"

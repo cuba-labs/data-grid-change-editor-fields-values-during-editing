@@ -8,7 +8,7 @@
     <dsContext>
         <groupDatasource id="orderItemsDs"
                          class="com.company.sample.entity.OrderItem"
-                         view="_local">
+                         view="orderItem-edit">
             <query>
                 <![CDATA[select e from sample$OrderItem e]]>
             </query>
@@ -34,9 +34,10 @@
             </actions>
             <columns>
                 <column property="product"/>
-                <column property="price"/>
+                <column property="product.name"/>
                 <column property="quantity"/>
-                <column property="total"/>
+                <column id="total"
+                        caption="Total"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

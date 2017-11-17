@@ -4,5 +4,6 @@
     <persistence-unit name="data-grid-change-editor-fields-values-during-editing"
                       transaction-type="RESOURCE_LOCAL">
         <class>com.company.sample.entity.OrderItem</class>
+        <class>com.company.sample.entity.Product</class>
     </persistence-unit>
 </persistence>

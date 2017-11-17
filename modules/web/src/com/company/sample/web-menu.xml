@@ -3,5 +3,6 @@
     <menu id="application-sample"
           insertBefore="administration">
         <item screen="sample$OrderItem.browse"/>
+        <item screen="sample$Product.browse"/>
     </menu>
 </menu-config>
